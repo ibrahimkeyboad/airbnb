@@ -48,7 +48,8 @@ function UserMenu({ user }: UserMenuProps) {
           border-[1px] 
           border-neutral-200 
           flex 
-          item-center 
+          items-center 
+          justify-center
           gap-3 
           rounded-full 
           cursor-pointer 
@@ -57,7 +58,7 @@ function UserMenu({ user }: UserMenuProps) {
           onClick={toggleOpen}>
           <AiOutlineMenu />
           <div className='hidden md:block'>
-            <Avatar />
+            <Avatar src={user?.image} />
           </div>
         </div>
       </div>
