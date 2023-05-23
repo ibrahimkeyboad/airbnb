@@ -11,6 +11,10 @@ import CategoryBox from '../input/CategoryInput';
 import CountrySelect from '../input/CountrySelect';
 import Input from '../input/Input';
 import Modal from './Modal';
+import useRentState from '@/hooks/useRentStore';
+import { categories } from '../nav-bar/Categories';
+import Counter from '../input/Counter';
+import ImageUpload from '../input/ImageUpload';
 
 enum STEPS {
   CATEGORY = 0,
@@ -23,7 +27,7 @@ enum STEPS {
 
 const RentModal = () => {
   const router = useRouter();
-  const rentModal = useRentModal();
+  const rentState = useRentState();
 
   const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState(STEPS.CATEGORY);
@@ -94,7 +98,7 @@ const RentModal = () => {
         router.refresh();
         reset();
         setStep(STEPS.CATEGORY);
-        rentModal.onClose();
+        rentState.onClose();
       })
       .catch(() => {
         toast.error('Something went wrong.');
@@ -263,13 +267,13 @@ const RentModal = () => {
   return (
     <Modal
       disable={isLoading}
-      isOpen={rentModal.isOpen}
+      isOpen={rentState.isOpen}
       title='Airbnb your home!'
       actionLabel={actionLabel}
       onSubmint={handleSubmit(onSubmit)}
       secondaryLabel={secondaryActionLabel}
       secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
-      onClose={rentModal.onClose}
+      onClose={rentState.onClose}
       body={bodyContent}
     />
   );

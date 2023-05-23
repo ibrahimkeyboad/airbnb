@@ -8,6 +8,7 @@ import useRegisterModal from '@/hooks/useRegisterModal';
 import useLoginStore from '@/hooks/useLoginStore';
 import { User } from '@prisma/client';
 import { signOut } from 'next-auth/react';
+import useRentState from '@/hooks/useRentStore';
 
 interface UserMenuProps {
   user?: User | null;
@@ -16,6 +17,7 @@ interface UserMenuProps {
 function UserMenu({ user }: UserMenuProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const registerModal = useRegisterModal();
+  const rentState = useRentState();
   const loginState = useLoginStore();
 
   const toggleOpen = useCallback(() => {
@@ -37,7 +39,7 @@ function UserMenu({ user }: UserMenuProps) {
         hover:bg-neutral-100
         transition
         cursor-pointer'
-          onClick={() => {}}>
+          onClick={rentState.onOpen}>
           Airbnb your home
         </div>
         <div
