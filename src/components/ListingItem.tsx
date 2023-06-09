@@ -1,3 +1,4 @@
+'use client';
 import { Listing, Reservation, User } from '@prisma/client';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { categories } from './nav-bar/Categories';
