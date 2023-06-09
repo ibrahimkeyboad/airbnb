@@ -22,6 +22,8 @@ function ListingHead({
 }: ListingHaadProps) {
   const { getByValue } = useCountries();
   const location = getByValue(locationValue);
+
+  console.log(imageSrc);
   return (
     <>
       <Heading
@@ -31,17 +33,12 @@ function ListingHead({
       <div
         className='
           w-full
-          h-[60hv]
+          h-[60vh]
           overflow-hidden
           rounded-xl
           relative
       '>
-        <Image
-          alt={title}
-          src={imageSrc}
-          fill
-          className='object-cover w-full'
-        />
+        <Image alt={title} src={imageSrc} fill className='object-cover' />
 
         <div className='absolute top-5 right-5'>
           <HeartButton listingId={id} currentUser={currentUser} />
