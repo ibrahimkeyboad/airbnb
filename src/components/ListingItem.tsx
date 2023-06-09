@@ -10,6 +10,7 @@ import { differenceInCalendarDays, eachDayOfInterval } from 'date-fns';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import ListingReservation from './listings/ListingReservation';
+import { Range } from 'react-date-range';
 
 interface ListingItemProps {
   listing: Listing & {
@@ -34,7 +35,7 @@ function ListingItem({
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [totalPrice, setTotalPrice] = useState(listing.price);
-  const [dateRange, setDateRange] = useState(initialDateRange);
+  const [dateRange, setDateRange] = useState<Range>(initialDateRange);
 
   const onCreateReservatiion = useCallback(() => {
     if (!currentUser) {

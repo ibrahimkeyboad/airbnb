@@ -13,11 +13,11 @@ const CategoriesInput: React.FC<CategoriesInputProps> = ({
   icon: Icon,
   label,
   selected,
-  // onClick,
+  onClick,
 }) => {
   return (
     <div
-      // onClick={() => onClick(label)}
+      onClick={() => onClick(label)}
       className={`
         rounded-xl
         border-2

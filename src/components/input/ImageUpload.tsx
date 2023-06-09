@@ -24,7 +24,7 @@ function ImageUpload({ onChange, value }: ImageUploadProps) {
   return (
     <CldUploadWidget
       onUpload={handleUpload}
-      uploadPreset=''
+      uploadPreset='airbnb-clone'
       options={{ maxFiles: 1 }}>
       {({ open }) => (
         <div

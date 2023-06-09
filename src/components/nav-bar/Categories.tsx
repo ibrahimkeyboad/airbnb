@@ -84,6 +84,11 @@ export const categories = [
     icon: IoDiamond,
     description: 'This Property is luxurious!',
   },
+  {
+    label: 'Snow',
+    icon: BsSnow,
+    description: 'This Property is luxurious!',
+  },
 ];
 
 function Categories() {

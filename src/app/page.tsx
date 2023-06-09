@@ -9,11 +9,11 @@ interface HomeProps {
 }
 
 const Home = async ({ searchParams }: HomeProps) => {
-  // const listings = await getListings(searchParams);
-  const listings = [];
+  const listings = await getListings(searchParams);
   const currentUser = await getCurrentUser();
 
   if (listings.length === 0) {
+    console.log('i will run');
     return <EmptyState showReset />;
   }
 
@@ -21,7 +21,7 @@ const Home = async ({ searchParams }: HomeProps) => {
     <Container>
       <div
         className='
-            pt-24
+            pt-10
             grid 
             grid-cols-1 
             sm:grid-cols-2 
